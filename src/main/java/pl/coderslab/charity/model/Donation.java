@@ -1,5 +1,7 @@
 package pl.coderslab.charity.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -23,6 +25,7 @@ public class Donation extends AbstractEntity {
     private String phone;
     @Column(name = "zip_code")
     private String zipCode;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "pick_up_date")
     private LocalDate pickUpDate;
     @Column(name = "pick_up_time")

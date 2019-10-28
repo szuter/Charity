@@ -18,7 +18,8 @@ public class HomeController {
     @RequestMapping("/")
     public String homeAction(Model model) {
         model.addAttribute("bagQuantity", homepageService.getQuantity());
-        model.addAttribute("supportedInstitutions", homepageService.getInstitutions());
+        model.addAttribute("supportedInstitutions", homepageService.getInstitutionCount());
+        model.addAttribute("allInstitutions", homepageService.getInstitutions());
         return "index";
     }
 }
