@@ -2,7 +2,7 @@ package pl.coderslab.charity.sevices;
 
 
 import org.springframework.stereotype.Service;
-import pl.coderslab.charity.dto.DonationDTO;
+import pl.coderslab.charity.dto.DonationFormDTO;
 import pl.coderslab.charity.model.Category;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.Institution;
@@ -35,7 +35,7 @@ public class DonationService {
     public List<Category> getCategories(){
         return categoryRepository.findAll();
     }
-    public void AddDonation(DonationDTO data){
+    public void AddDonation(DonationFormDTO data){
         Donation donation = new Donation();
         donation.setCategories(data.getCategories());
         donation.setCity(data.getCity());

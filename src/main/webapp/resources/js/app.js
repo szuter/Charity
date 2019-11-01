@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
             currentStep.querySelectorAll('input').forEach(function (el) {
                 if (el.checked == true)
                     result = true;
-            })
+            });
             if (result == false) {
                 currentStep.querySelector(".error").innerHTML = "Przynajmniej 1 pole musi byc zaznaczone";
             }
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (el.value > 0) {
                     result = true;
                 }
-            })
+            });
             if (result == false) {
                 currentStep.querySelector(".error").innerHTML = "Podaj liczbe workow";
             }
@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (el.checked == true) {
                     result = true;
                 }
-            })
+            });
             if (result == false) {
                 currentStep.querySelector(".error").innerHTML = "Wybierz instytucje";
             }
@@ -219,14 +219,23 @@ document.addEventListener("DOMContentLoaded", function () {
             result = true;
             currentStep.querySelectorAll('input').forEach(function (el) {
                 if (el.value == "" && iterator != 6) {
-                    result = message(el);
+                    result = messageBlank(el);
+                } else if (!(/^[0-9]{9}$/.test(el.value)) && iterator == 3) {
+                    result = messageWrongValue(el);
+                } else if (!(/^[0-9]{2}-[0-9]{3}$/.test(el.value)) && iterator == 2) {
+                    result = messageWrongValue(el);
                 }
                 iterator++;
             })
         }
 
-        function message(element) {
-            element.parentElement.parentElement.nextElementSibling.innerHTML = "Pole nie moze byc puste"
+        function messageBlank(element) {
+            element.parentElement.parentElement.nextElementSibling.innerHTML = "Pole nie moze byc puste";
+            return false;
+        }
+
+        function messageWrongValue(element) {
+            element.parentElement.parentElement.nextElementSibling.innerHTML = "Błędna wartość";
             return false;
         }
 

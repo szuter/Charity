@@ -12,9 +12,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DonationDTO {
+public class DonationFormDTO {
 
-    @NotBlank
+    @NotNull
     private Long quantity;
     @NotNull
     private List<Category> categories = new ArrayList<>();
@@ -30,12 +30,9 @@ public class DonationDTO {
     @NotBlank
     @Pattern(regexp = "^[0-9]{2}\\-[0-9]{3}$")
     private String zipCode;
-    @NotBlank
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
-    @NotBlank
     private LocalTime pickUpTime;
-    @NotBlank
     private String pickUpComment;
 
     public Long getQuantity() {

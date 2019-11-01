@@ -75,7 +75,7 @@
                 <div class="form-group form-group--checkbox" id="category">
                     <label>
                         <form:checkbox path="categories" value="${category.id}"
-                                       data-name="${category.name}"/>
+                        data-name="${category.name}"/>
                         <span class="checkbox"></span>
                         <span class="description">${category.name}</span>
                     </label>
@@ -96,8 +96,8 @@
                     Liczba 60l worków:
                     <form:input path="quantity" type="number" step="1" min="1"/>
                 </label>
+                <span class="error"></span>
             </div>
-            <span class="error"></span>
             <div class="form-group form-group--buttons">
                 <button type="button" class="btn prev-step">Wstecz</button>
                 <button type="button" class="btn next-step">Dalej</button>
