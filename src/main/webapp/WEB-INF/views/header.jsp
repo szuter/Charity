@@ -2,13 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: szuter
-  Date: 23-Oct-19
-  Time: 21:32
-  To change this template use File | Settings | File Templates.
---%>
+
 <nav class="container container--70">
     <c:choose>
         <c:when test="${empty sessionScope.user}">
@@ -32,13 +26,13 @@
     </c:choose>
     <ul>
         <li><a href="/" class="btn btn--without-border active">Start</a></li>
-        <li><a href="#" class="btn btn--without-border">O co chodzi?</a></li>
-        <li><a href="#" class="btn btn--without-border">O nas</a></li>
-        <li><a href="#" class="btn btn--without-border">Fundacje i organizacje</a></li>
+        <li><a href="/#steps" class="btn btn--without-border">O co chodzi?</a></li>
+        <li><a href="/#about-us" class="btn btn--without-border">O nas</a></li>
+        <li><a href="/#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
         <c:if test="${not empty sessionScope.user}">
             <li><a href="/addDonation" class="btn btn--without-border">Przekaż dary</a></li>
         </c:if>
-        <li><a href="#" class="btn btn--without-border">Kontakt</a></li>
+        <li><a href="${pageContext.request.contextPath}#contact" class="btn btn--without-border">Kontakt</a></li>
     </ul>
 </nav>
 
