@@ -31,6 +31,8 @@ public class RegistrationService {
         user.setAccess("ROLE_USER");
         user.setEmail(data.getEmail());
         user.setPassword(passwordEncoder.encode(data.getPassword()));
+        user.setFirstName(data.getFirstName());
+        user.setLastName(data.getLastName());
         userRepository.save(user);
 
     }

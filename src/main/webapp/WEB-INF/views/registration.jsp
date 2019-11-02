@@ -21,6 +21,14 @@
     <h2>Załóż konto</h2>
     <form:form modelAttribute="data" method="post">
         <div class="form-group">
+            <form:input path="firstName" type="text" placeholder="Imie"/>
+            <span class="error"><form:errors path="firstName"/></span>
+        </div>
+        <div class="form-group">
+            <form:input path="lastName" type="text" placeholder="Nazwisko"/>
+            <span class="error"><form:errors path="lastName"/></span>
+        </div>
+        <div class="form-group">
             <form:input path="email" type="email" placeholder="Email"/>
             <span class="error"><form:errors path="email"/></span>
         </div>

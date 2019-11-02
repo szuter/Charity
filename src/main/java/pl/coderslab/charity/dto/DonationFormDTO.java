@@ -3,6 +3,7 @@ package pl.coderslab.charity.dto;
 import org.springframework.format.annotation.DateTimeFormat;
 import pl.coderslab.charity.model.Category;
 import pl.coderslab.charity.model.Institution;
+import pl.coderslab.charity.model.User;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -34,6 +35,15 @@ public class DonationFormDTO {
     private LocalDate pickUpDate;
     private LocalTime pickUpTime;
     private String pickUpComment;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Long getQuantity() {
         return quantity;

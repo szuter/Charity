@@ -47,6 +47,7 @@ public class DonationService {
         donation.setZipCode(data.getZipCode());
         donation.setQuantity(data.getQuantity());
         donation.setStreet(data.getStreet());
+        donation.setUser(data.getUser());
         donationRepository.save(donation);
     }
 

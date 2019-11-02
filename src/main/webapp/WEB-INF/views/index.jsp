@@ -29,7 +29,7 @@
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <em>${bagQuantity}</em>
+            <em><c:out value="${bagQuantity}" default="0"/></em>
 
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
@@ -37,7 +37,7 @@
         </div>
 
         <div class="stats--item">
-            <em>${supportedInstitutions}</em>
+            <em><c:out value="${supportedInstitutions}" default="0"/></em>
             <h3>Wspartych organizacji</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
@@ -71,8 +71,16 @@
             <p>kurier przyjedzie w dogodnym terminie</p>
         </div>
     </div>
+    <c:choose>
+        <c:when test="${empty sessionScope.user}">
+            <a href="/register" class="btn btn--large">Załóż konto</a>
+        </c:when>
+        <c:otherwise>
+            <a href="/addDonation" class="btn btn--large">Przekaż dary</a>
+        </c:otherwise>
+    </c:choose>
 
-    <a href="#" class="btn btn--large">Załóż konto</a>
+
 </section>
 
 <section class="about-us">

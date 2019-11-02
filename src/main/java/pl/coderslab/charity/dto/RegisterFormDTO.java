@@ -1,5 +1,7 @@
 package pl.coderslab.charity.dto;
 
+import pl.coderslab.charity.model.User;
+
 import javax.validation.constraints.NotBlank;
 
 public class RegisterFormDTO {
@@ -10,6 +12,35 @@ public class RegisterFormDTO {
     private String password;
     @NotBlank(message = "Pole nie moze byc puste")
     private String rePassword;
+    @NotBlank
+    private String firstName;
+    @NotBlank
+    private String lastName;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public String getEmail() {
         return email;

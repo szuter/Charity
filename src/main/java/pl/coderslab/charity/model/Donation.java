@@ -32,6 +32,16 @@ public class Donation extends AbstractEntity {
     private LocalTime pickUpTime;
     @Column(name = "pick_up_comment")
     private String pickUpComment;
+    @ManyToOne
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Long getQuantity() {
         return quantity;
