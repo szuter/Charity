@@ -68,7 +68,7 @@
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
         <form:form modelAttribute="data" method="post">
-        <form:hidden path="user" value="${sessionScope.user}"/>
+            <form:hidden path="user" value="${sessionScope.user.id}"/>
         <!-- STEP 1: class .active is switching steps -->
         <div data-step="1" class="active">
             <h3>Zaznacz co chcesz oddać:</h3>
@@ -76,7 +76,7 @@
                 <div class="form-group form-group--checkbox" id="category">
                     <label>
                         <form:checkbox path="categories" value="${category.id}"
-                        data-name="${category.name}"/>
+                                       data-name="${category.name}"/>
                         <span class="checkbox"></span>
                         <span class="description">${category.name}</span>
                     </label>

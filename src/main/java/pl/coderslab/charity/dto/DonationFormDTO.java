@@ -35,6 +35,7 @@ public class DonationFormDTO {
     private LocalDate pickUpDate;
     private LocalTime pickUpTime;
     private String pickUpComment;
+    @NotNull
     private User user;
 
     public User getUser() {

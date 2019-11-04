@@ -6,6 +6,7 @@ import pl.coderslab.charity.dto.DonationFormDTO;
 import pl.coderslab.charity.model.Category;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.Institution;
+import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.repositories.CategoryRepository;
 import pl.coderslab.charity.repositories.DonationRepository;
 import pl.coderslab.charity.repositories.InstitutionRepository;
@@ -29,13 +30,15 @@ public class DonationService {
     }
 
 
-    public List<Institution> getInstitutions(){
+    public List<Institution> getInstitutions() {
         return institutionRepository.findAll();
     }
-    public List<Category> getCategories(){
+
+    public List<Category> getCategories() {
         return categoryRepository.findAll();
     }
-    public void AddDonation(DonationFormDTO data){
+
+    public void AddDonation(DonationFormDTO data) {
         Donation donation = new Donation();
         donation.setCategories(data.getCategories());
         donation.setCity(data.getCity());
@@ -49,6 +52,11 @@ public class DonationService {
         donation.setStreet(data.getStreet());
         donation.setUser(data.getUser());
         donationRepository.save(donation);
+    }
+
+    public List<Donation> getAllUserDonations(User user) {
+        List<Donation> donations = donationRepository.findAllByUser(user);
+        return donations;
     }
 
 }
