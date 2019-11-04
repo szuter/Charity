@@ -34,8 +34,6 @@ public class DonationController {
 
     @PostMapping("/addDonation")
     public String processAddDonationPage(@ModelAttribute("data") @Valid DonationFormDTO data, BindingResult result) {
-        if (data.getUser() == null)
-            return "index";
         donationService.AddDonation(data);
         return "form-confirmation";
     }
