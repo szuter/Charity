@@ -34,6 +34,36 @@ public class Donation extends AbstractEntity {
     private String pickUpComment;
     @ManyToOne
     private User user;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate created;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate delivered;
+    private String status;
+
+    @PrePersist
+    public void prePersist() {
+        created = LocalDate.now();
+    }
+
+    public LocalDate getCreated() {
+        return created;
+    }
+
+    public LocalDate getDelivered() {
+        return delivered;
+    }
+
+    public void setDelivered(LocalDate delivered) {
+        this.delivered = delivered;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public User getUser() {
         return user;

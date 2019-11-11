@@ -11,35 +11,53 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
 
-    <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
 <body>
 <header>
     <jsp:include page="header.jsp"/>
-</header>
-<section class="login-page">
-    <h2>Twoje dary</h2>
-    <table>
-        <c:forEach var="donation" items="${userDonations}">
-            <tr class="table-row">
-                <td>
-                    Data utworzenia
-                </td>
-                <td>
-                        ${donation.institution.name}
-                </td>
-                <td>
-                        ${donation.quantity}
-                </td>
-                <td>
-                    Action
-                </td>
+
+    <section class="login-page">
+        <h2>Twoje dary</h2>
+        <table class="table" style="font-size: 20px">
+            <thead>
+            <tr>
+                <th scope="col">Utowrzono</th>
+                <th scope="col">Instytucja</th>
+                <th scope="col">Liczba worków</th>
+                <th scope="col">Status</th>
+                <th scope="col">Data odebrania</th>
+                <th scope="col">Akcje</th>
 
             </tr>
-        </c:forEach>
+            </thead>
+            <tbody>
+            <c:forEach var="donation" items="${userDonations}">
+                <tr>
+                    <th>${donation.created}</th>
+                    <th>${donation.institution.name}</th>
+                    <th>${donation.quantity}</th>
+                    <th>${donation.status}</th>
+                    <th>
+                        <c:choose>
+                            <c:when test="${donation.status.equals('Nieodebrane')}">
+                                <a href="/showDonations/changeStatus?id=${donation.id}" class="btn">Odebrano</a>
+                            </c:when>
+                            <c:otherwise>
+                                ${donation.delivered}
+                            </c:otherwise>
+                        </c:choose>
+                    </th>
+                    <th>
+                        <a href="/showDonations/info?id=${donation.id}" class="btn">Szczegóły</a>
 
-    </table>
-</section>
+                    </th>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </section>
+</header>
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

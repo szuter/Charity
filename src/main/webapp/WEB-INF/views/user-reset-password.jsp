@@ -20,21 +20,23 @@
     <jsp:include page="header.jsp"/>
 </header>
 <section class="login-page">
-    <h2>Zaloguj się</h2>
-    <form:form method="post" modelAttribute="data">
-        <div class="form-group">
-            <form:input path="email" type="email" placeholder="Email"/>
-            <span class="error"><form:errors path="email"/></span>
+    <h2>Dane użytkownika</h2>
+    <form:form modelAttribute="data" method="post">
+        <div class="form-group form-group--inline">
+            <label>Aktualne hasło:<form:input path="actualPassword" type="password"/></label>
+            <span class="error"><form:errors path="actualPassword"/></span>
         </div>
-        <div class="form-group">
-            <form:input path="password" type="password" placeholder="Hasło"/>
-            <span class="error"><form:errors path="password"/></span>
-            <a href="#" class="btn btn--small btn--without-border reset-password">Przypomnij hasło</a>
+        <div class="form-group form-group--inline">
+            <label>Nowe hasło: <form:input path="newPassword" type="password"/></label>
+            <span class="error"><form:errors path="newPassword"/></span>
         </div>
-
+        <div class="form-group form-group--inline">
+            <label>Powtórz hasło: <form:input path="reNewPassword" type="password"/></label>
+            <span class="error"><form:errors path="reNewPassword"/></span>
+        </div>
         <div class="form-group form-group--buttons">
-            <a href="/register" class="btn btn--without-border">Załóż konto</a>
-            <button class="btn" type="submit">Zaloguj się</button>
+            <a href="/" class="btn btn--without-border">Powrót</a>
+            <button class="btn" type="submit">Zapisz zmiany</button>
         </div>
     </form:form>
 </section>

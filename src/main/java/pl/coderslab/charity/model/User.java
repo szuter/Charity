@@ -20,7 +20,7 @@ public class User extends AbstractEntity {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Donation> donations = new ArrayList<>();
 
     public String getFirstName() {

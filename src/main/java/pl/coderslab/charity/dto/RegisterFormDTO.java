@@ -2,28 +2,31 @@ package pl.coderslab.charity.dto;
 
 import pl.coderslab.charity.model.User;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 public class RegisterFormDTO {
 
+
+    private Long id;
+    @Email
     @NotBlank(message = "Pole nie moze byc puste")
     private String email;
     @NotBlank(message = "Pole nie moze byc puste")
     private String password;
     @NotBlank(message = "Pole nie moze byc puste")
     private String rePassword;
-    @NotBlank
+    @NotBlank(message = "Pole nie moze byc puste")
     private String firstName;
-    @NotBlank
+    @NotBlank(message = "Pole nie moze byc puste")
     private String lastName;
-    private User user;
 
-    public User getUser() {
-        return user;
+    public Long getId() {
+        return id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {

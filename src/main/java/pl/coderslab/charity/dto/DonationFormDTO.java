@@ -33,10 +33,40 @@ public class DonationFormDTO {
     private String zipCode;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime pickUpTime;
     private String pickUpComment;
     @NotNull
     private User user;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate created;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate delivered;
+    private String status;
+
+    public LocalDate getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDate created) {
+        this.created = created;
+    }
+
+    public LocalDate getDelivered() {
+        return delivered;
+    }
+
+    public void setDelivered(LocalDate delivered) {
+        this.delivered = delivered;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public User getUser() {
         return user;

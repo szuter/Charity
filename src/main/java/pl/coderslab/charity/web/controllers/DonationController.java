@@ -1,17 +1,17 @@
 package pl.coderslab.charity.web.controllers;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.dto.DonationFormDTO;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.sevices.DonationService;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 public class DonationController {
@@ -25,7 +25,8 @@ public class DonationController {
 
 
     @GetMapping("/addDonation")
-    public String prepareAddDonationPage(Model model) {
+    public String prepareAddDonationPage(Model model, Principal principal) {
+
         model.addAttribute("data", new DonationFormDTO());
         model.addAttribute("categoryList", donationService.getCategories());
         model.addAttribute("institutionList", donationService.getInstitutions());
@@ -39,9 +40,20 @@ public class DonationController {
     }
 
     @GetMapping("/showDonations")
-    public String prepareShowDonationPage(Model model, HttpSession session) {
-        User user = (User) session.getAttribute("user");
-        model.addAttribute("userDonations", donationService.getAllUserDonations(user));
+    public String prepareShowDonationPage(Model model,Principal principal) {
+        model.addAttribute("userDonations", donationService.getAllUserDonations(principal.getName()));
         return "show-donations";
+    }
+
+    @RequestMapping("/showDonations/changeStatus")
+    public String processChangeStatusPage(@RequestParam Long id){
+        donationService.changeStatus(id);
+        return "redirect:/showDonations";
+    }
+
+    @RequestMapping("/showDonations/info")
+    public String processDonationInfoPage(Model model,@RequestParam Long id){
+        model.addAttribute("data",donationService.getDonation(id));
+        return "donation-info";
     }
 }

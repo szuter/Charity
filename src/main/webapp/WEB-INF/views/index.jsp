@@ -2,6 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authentication property="principal" var="user"/>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -71,16 +73,12 @@
             <p>kurier przyjedzie w dogodnym terminie</p>
         </div>
     </div>
-    <c:choose>
-        <c:when test="${empty sessionScope.user}">
-            <a href="/register" class="btn btn--large">Załóż konto</a>
-        </c:when>
-        <c:otherwise>
-            <a href="/addDonation" class="btn btn--large">Przekaż dary</a>
-        </c:otherwise>
-    </c:choose>
-
-
+    <sec:authorize access="!isAuthenticated()">
+        <a href="/register" class="btn btn--large">Załóż konto</a>
+    </sec:authorize>
+    <sec:authorize access="isAuthenticated()">
+        <a href="/addDonation" class="btn btn--large">Przekaż dary</a>
+    </sec:authorize>
 </section>
 
 <section id="about-us" class="about-us">
@@ -88,9 +86,9 @@
         <h2>O nas</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero
             optio esse quisquam illo omnis.</p>
-        <img src="<c:url value="resources/images/signature.svg"/>" class="about-us--text-signature" alt="Signature"/>
+        <img src="<c:url value="/resources/images/signature.svg"/>" class="about-us--text-signature" alt="Signature"/>
     </div>
-    <div class="about-us--image"><img src="<c:url value="resources/images/about-us.jpg"/>" alt="People in circle"/>
+    <div class="about-us--image"><img src="<c:url value="/resources/images/about-us.jpg"/>" alt="People in circle"/>
     </div>
 </section>
 
@@ -118,6 +116,6 @@
 
 <jsp:include page="footer.jsp"/>
 
-<script src="<c:url value="resources/js/app.js"/>"></script>
+<script src="<c:url value="/resources/js/app.js"/>"></script>
 </body>
 </html>
