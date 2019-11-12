@@ -4,6 +4,7 @@ import pl.coderslab.charity.model.User;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 public class RegisterFormDTO {
 
@@ -12,9 +13,9 @@ public class RegisterFormDTO {
     @Email
     @NotBlank(message = "Pole nie moze byc puste")
     private String email;
-    @NotBlank(message = "Pole nie moze byc puste")
+    @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,12}$", message = "Hasło musi posiadać conajmniej jeden znak specjalny, jedną duża literę i składać się z 8-12 znaków")
     private String password;
-    @NotBlank(message = "Pole nie moze byc puste")
+    @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,12}$", message = "Hasło musi posiadać conajmniej jeden znak specjalny, jedną duża literę i składać się z 8-12 znaków")
     private String rePassword;
     @NotBlank(message = "Pole nie moze byc puste")
     private String firstName;

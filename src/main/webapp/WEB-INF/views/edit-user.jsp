@@ -32,7 +32,7 @@
             <span class="error"><form:errors path="lastName"/></span>
         </div>
         <div class="form-group form-group--buttons">
-            <a href="/editUser/resetPassword" class="btn btn--without-border">Zmień hasło</a>
+            <a href="<c:url value="/editUser/resetPassword"/>" class="btn btn--without-border">Zmień hasło</a>
             <button class="btn" type="submit">Zapisz zmiany</button>
         </div>
     </form:form>

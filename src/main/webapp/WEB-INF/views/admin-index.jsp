@@ -108,7 +108,7 @@
                     </a>
                     <div class="collapse-divider"></div>
                     <h6 class="collapse-header">Inne strony:</h6>
-                    <a class="collapse-item" href="<c:url value="/"/>">Strona główna</a>
+                    <a class="collapse-item" href="<c:url value="/home"/>">Strona główna</a>
                     <a class="collapse-item" href="<c:url value="/addDonation"/>">Przekaż dar</a>
                 </div>
             </div>
@@ -146,7 +146,6 @@
                                     <th>Liczba workow</th>
                                     <th>Data odbioru</th>
                                     <th>Status</th>
-                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
@@ -155,7 +154,6 @@
                                     <th>Liczba workow</th>
                                     <th>Data odbioru</th>
                                     <th>Status</th>
-                                    <th>Action</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
@@ -164,8 +162,7 @@
                                         <td>${donation.institution.name}</td>
                                         <td>${donation.quantity}</td>
                                         <td>${donation.pickUpDate} ${donation.pickUpTime}</td>
-                                        <td>Status</td>
-                                        <td>akcje</td>
+                                        <td>${donation.status}</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
@@ -215,7 +212,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="/logout">Logout</a>
+                <a class="btn btn-primary" href="<c:url value="/logout"/>">Logout</a>
             </div>
         </div>
     </div>

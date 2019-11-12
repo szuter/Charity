@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
 
-    <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
 <body>
 <header>
@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-group form-group--buttons">
-            <a href="/login" class="btn btn--without-border">Zaloguj się</a>
+            <a href="<c:url value="/login"/>" class="btn btn--without-border">Zaloguj się</a>
             <button class="btn" type="submit">Załóż konto</button>
         </div>
     </form:form>

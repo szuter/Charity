@@ -108,7 +108,7 @@
                     </a>
                     <div class="collapse-divider"></div>
                     <h6 class="collapse-header">Inne strony:</h6>
-                    <a class="collapse-item" href="<c:url value="/"/>">Strona główna</a>
+                    <a class="collapse-item" href="<c:url value="/home"/>">Strona główna</a>
                     <a class="collapse-item" href="<c:url value="/addDonation"/>">Przekaż dar</a>
                 </div>
             </div>
@@ -137,7 +137,7 @@
                     <div class="card-header py-3">
                         <div class="row">
                             <h6 class="m-0 font-weight-bold text-primary col-11">Administratorzy</h6>
-                            <a href="/admin/admins/add">
+                            <a href="<c:url value="/admin/admins/add"/>">
                                 <button type="submit" class="btn btn-primary col-1 col-md-auto">
                                     <span class="text">Dodaj</span>
                                 </button>
@@ -171,14 +171,14 @@
                                         <td>${admin.lastName}</td>
                                         <td>
                                             <div class="row">
-                                                <form action="/admin/admins/edit" method="get">
+                                                <form action="<c:url value="/admin/admins/edit"/>" method="get">
                                                     <input type="hidden" name="id" value="${admin.id}"/>
                                                     <button type="submit" class="btn btn-primary">
                                                         <span class="text">Edytuj</span>
                                                     </button>
                                                 </form>
                                                 <br>
-                                                <form action="/admin/admins/delete" method="get">
+                                                <form action="<c:url value="/admin/admins/delete"/>" method="get">
                                                     <input type="hidden" name="id" value="${admin.id}"/>
                                                     <button type="submit" class="btn btn-danger">
                                                         <span class="text">Usuń</span>
@@ -235,7 +235,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="/logout">Logout</a>
+                <a class="btn btn-primary" href="<c:url value="/logout"/>">Logout</a>
             </div>
         </div>
     </div>

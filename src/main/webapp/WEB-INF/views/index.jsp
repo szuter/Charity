@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
 
-    <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
 <body>
 <header class="header--main-page">
@@ -74,10 +74,10 @@
         </div>
     </div>
     <sec:authorize access="!isAuthenticated()">
-        <a href="/register" class="btn btn--large">Załóż konto</a>
+        <a href="<c:url value="/register"/>" class="btn btn--large">Załóż konto</a>
     </sec:authorize>
     <sec:authorize access="isAuthenticated()">
-        <a href="/addDonation" class="btn btn--large">Przekaż dary</a>
+        <a href="<c:url value="/addDonation"/>" class="btn btn--large">Przekaż dary</a>
     </sec:authorize>
 </section>
 

@@ -35,7 +35,7 @@
             <span class="error"><form:errors path="reNewPassword"/></span>
         </div>
         <div class="form-group form-group--buttons">
-            <a href="/" class="btn btn--without-border">Powrót</a>
+            <a href="<c:url value="/"/>" class="btn btn--without-border">Powrót</a>
             <button class="btn" type="submit">Zapisz zmiany</button>
         </div>
     </form:form>

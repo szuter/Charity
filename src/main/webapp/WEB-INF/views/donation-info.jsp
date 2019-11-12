@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-    <a href="/showDonations" class="btn">Powrót</a>
+    <a href="<c:url value="/showDonations"/>" class="btn">Powrót</a>
 </section>
 
 <jsp:include page="footer.jsp"/>

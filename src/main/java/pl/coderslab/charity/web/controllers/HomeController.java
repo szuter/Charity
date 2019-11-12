@@ -20,15 +20,17 @@ public class HomeController {
     }
 
     @RequestMapping("/")
-    public String homeAction(Model model,Principal principal) {
-        model.addAttribute("allInstitutions", homepageService.getInstitutions());
+    public String homeAction(Principal principal) {
         if (principal != null) {
             if (homepageService.activeUser(principal.getName()).getAccess().equals("ROLE_ADMIN")) {
                 return "redirect:/admin";
             }
         }
-        model.addAttribute("bagQuantity", homepageService.getQuantity());
-        model.addAttribute("supportedInstitutions", homepageService.getInstitutionCount());
+        return "index";
+    }
+
+    @RequestMapping("/home")
+    public String homePage(){
         return "index";
     }
 }

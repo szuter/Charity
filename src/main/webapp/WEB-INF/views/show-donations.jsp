@@ -41,7 +41,7 @@
                     <th>
                         <c:choose>
                             <c:when test="${donation.status.equals('Nieodebrane')}">
-                                <a href="/showDonations/changeStatus?id=${donation.id}" class="btn">Odebrano</a>
+                                <a href="<c:url value="/showDonations/changeStatus?id=${donation.id}"/>" class="btn">Odebrano</a>
                             </c:when>
                             <c:otherwise>
                                 ${donation.delivered}
@@ -49,7 +49,7 @@
                         </c:choose>
                     </th>
                     <th>
-                        <a href="/showDonations/info?id=${donation.id}" class="btn">Szczegóły</a>
+                        <a href="<c:url value="/showDonations/info?id=${donation.id}"/>" class="btn">Szczegóły</a>
 
                     </th>
                 </tr>
